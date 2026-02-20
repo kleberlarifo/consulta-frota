@@ -2,37 +2,74 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consulta de Frota</title>
+
 <style>
     body {
         font-family: Arial, sans-serif;
         background-color: #f4f4f4;
-        text-align: center;
-        padding: 40px;
+        margin: 0;
+        padding: 20px;
     }
+
     .container {
         background: white;
-        padding: 30px;
-        border-radius: 10px;
+        padding: 20px;
+        border-radius: 12px;
         max-width: 500px;
+        width: 100%;
         margin: auto;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-sizing: border-box;
     }
+
+    h2 {
+        color: #007BFF; /* Azul */
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
     input {
-        padding: 10px;
-        width: 80%;
+        padding: 14px;
+        width: 100%;
         font-size: 16px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
     }
+
     button {
-        padding: 10px 20px;
+        padding: 14px;
+        width: 100%;
         font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        background-color: #007BFF;
+        color: white;
         cursor: pointer;
+        transition: background 0.3s;
     }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
     .resultado {
         margin-top: 20px;
         font-size: 18px;
         font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 20px;
+        }
+
+        .container {
+            padding: 15px;
+        }
     }
 </style>
 </head>
@@ -41,20 +78,14 @@
 <div class="container">
     <h2>Consulta de Frota</h2>
     <input type="text" id="placa" placeholder="Digite a placa (ex: ABC1234)">
-    <br>
     <button onclick="consultar()">Consultar</button>
-
     <div class="resultado" id="resultado"></div>
 </div>
 
 <script>
-    // =============================
-    // "BANCO DE DADOS" DE PLACAS
-    // =============================
     const bancoDeDados = {
         "ABC1234": "Frota 101",
         "DEF5678": "Frota 202",
-        "GHI9012": "Frota 303",
 		"RAE3987": "Frota 193897",
 "MLY4454": "Frota 144454",
 "RAE5067": "Frota 195067",
@@ -809,12 +840,12 @@
 "TPI8H50": "Frota 108050",
 "TPI9G20": "Frota 109120",
 "TPJ7C80": "Frota 107080"
-
 		
 		
 		
 		
 		
+        // Seu banco completo continua aqui normalmente
     };
 
     function consultar() {
